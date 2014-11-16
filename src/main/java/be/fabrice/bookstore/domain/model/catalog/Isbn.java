@@ -1,6 +1,5 @@
 package be.fabrice.bookstore.domain.model.catalog;
 
-import be.fabrice.bookstore.domain.model.InconsistentModelCreation;
 
 public class Isbn {
 	private String value;
@@ -8,7 +7,7 @@ public class Isbn {
 	public Isbn(String value){
 		String cleanValue = cleanValue(value);
 		if(!validate(cleanValue)){
-			throw new InconsistentModelCreation("Isbn not corrfect: "+value);
+			throw new IllegalArgumentException("Isbn not correct: "+value);
 		}
 		if(cleanValue.length()==10){
 			cleanValue = transform10to13(cleanValue);

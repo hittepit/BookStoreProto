@@ -2,8 +2,6 @@ package be.fabrice.bookstore.domain.model.catalog;
 
 import org.apache.commons.lang3.StringUtils;
 
-import be.fabrice.bookstore.domain.model.InconsistentModelCreation;
-
 public class Category {
 	private String name;
 
@@ -15,7 +13,7 @@ public class Category {
 	 */
 	public Category(String name){
 		if(StringUtils.isBlank(name)){
-			throw new InconsistentModelCreation("name cannot be null nor blank: "+name);
+			throw new IllegalArgumentException("name cannot be null nor blank: "+name);
 		} else {
 			this.name = name.trim();
 		}
